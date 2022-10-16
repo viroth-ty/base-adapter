@@ -1,4 +1,9 @@
 ## Configuration 
+add implementation 
+```kotlin 
+implementation("com.github.viroth-ty:base-adapter:$latest_version")
+```
+
 add Maven url in build.gradle
 ```groovy 
 pluginManagement {
