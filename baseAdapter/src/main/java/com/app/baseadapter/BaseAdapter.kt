@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseAdapter<T : Any, VB : ViewBinding> : ListAdapter<T, ViewBindingVH<VB>>(BaseDiffUtil<T>()) {
-
+    private var defaultItemViewType = -1
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewBindingVH<VB> {
         context = parent.context
@@ -33,7 +33,7 @@ abstract class BaseAdapter<T : Any, VB : ViewBinding> : ListAdapter<T, ViewBindi
     }
 
     override fun getItemViewType(position: Int): Int {
-        return itemType(position)
+        return baseItemType(position)
     }
 
     override fun getItemCount(): Int = currentList.size
@@ -42,7 +42,9 @@ abstract class BaseAdapter<T : Any, VB : ViewBinding> : ListAdapter<T, ViewBindi
 
     abstract fun bind(binding: VB, position: Int, item: T)
 
-    abstract fun itemType(position: Int): Int
+    open fun baseItemType(position: Int): Int {
+        return defaultItemViewType
+    }
 
     open fun onItemClickListener(item: T) {}
 }

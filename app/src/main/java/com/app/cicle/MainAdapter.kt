@@ -1,7 +1,6 @@
 package com.app.cicle
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
 import com.app.baseadapter.BaseAdapter
@@ -11,10 +10,10 @@ import com.app.cicle.databinding.TextItemViewBinding
 class MainAdapter(val itemClick: (Item) -> Unit) : BaseAdapter<Item, ViewBinding>() {
 
     override fun inflateView(inflater: LayoutInflater, viewType: Int): ViewBinding {
-        if (viewType == 0) {
-            return TextItemViewBinding.inflate(inflater)
+        return if (viewType == 0) {
+            TextItemViewBinding.inflate(inflater)
         } else {
-            return NumberItemViewBinding.inflate(inflater)
+            NumberItemViewBinding.inflate(inflater)
         }
     }
 
@@ -32,7 +31,7 @@ class MainAdapter(val itemClick: (Item) -> Unit) : BaseAdapter<Item, ViewBinding
         itemClick(item)
     }
 
-    override fun itemType(position: Int): Int {
+    override fun baseItemType(position: Int): Int {
         return if (getItem(position).type == "Number") {
             0
         } else {
