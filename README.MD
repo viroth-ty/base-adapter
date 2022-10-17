@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 }
 ```
 
-#### Note * The BaseAdapter.kt class is using ListAdapter
+#### Note * The BaseAdapter.kt class is extended from ListAdapter
 Example ``` MainAdapter.kt ``` with Multiple view
 
 ```kotlin
