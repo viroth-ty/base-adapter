@@ -85,10 +85,6 @@ class MainAdapter(val itemClick: (Item) -> Unit) : BaseAdapter<Item, ViewBinding
         super.onItemClickListener(item)
         itemClick(item)
     }
-
-    override fun itemType(position: Int): Int {
-        return 0
-    }
 }
 ```
 
