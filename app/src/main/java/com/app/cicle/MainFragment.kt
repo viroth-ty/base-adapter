@@ -33,8 +33,14 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_secondFragment)
         }
         val list = arrayListOf<Item>()
-        List(10000) {
-            list.add(Item(id = it, type = if (it % 2 == 0) "Number" else "Text"))
+        List(1000) {
+            val type = if (it % 2 == 0) "Number" else "Complex"
+            list.add(
+                Item(
+                    id = it,
+                    type = type
+                )
+            )
         }
         adapter.submitList(list)
         binding.recyclerview.adapter = adapter
