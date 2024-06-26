@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout.LayoutParams
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
@@ -21,12 +20,6 @@ abstract class BaseAdapter<T : Any, VB : ViewBinding> : ListAdapter<T, ViewBindi
     override fun onBindViewHolder(holder: ViewBindingVH<VB>, position: Int) {
         val item = getItem(position)
         bind(holder.binding, position, item = item)
-
-        val layoutParam = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        holder.binding.root.layoutParams = layoutParam
         holder.binding.root.setOnClickListener {
             onItemClickListener(item = item)
         }
@@ -53,7 +46,7 @@ class BaseDiffUtil<T : Any> : DiffUtil.ItemCallback<T>() {
 
     @SuppressLint("DiffUtilEquals")
     override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
-        return oldItem == newItem
+        return oldItem.toString() == newItem.toString()
     }
 
     override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
