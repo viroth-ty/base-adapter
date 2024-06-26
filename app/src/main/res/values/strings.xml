@@ -2,4 +2,8 @@
     <string name="app_name">Cicle</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel">cancel</string>
+    <string name="resend">resend</string>
+    <string name="renew">renew</string>
+    <string name="all_text_transaction">all_text_transaction</string>
 </resources>
